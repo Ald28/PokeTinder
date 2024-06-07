@@ -18,6 +18,11 @@ class LoginViewModel (
             it.setSharedPreference(context)
         }
 
+    fun isEmptyInputs(email: String, password: String)=email.isEmpty()||password.isEmpty()
+    private fun isValidEmail(email: String): Boolean {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
     fun validateInputs(email: String, password: String){
         if(isEmptyInputs(email,password)){
             inputsError.postValue(true)
@@ -34,9 +39,5 @@ class LoginViewModel (
         if (emailSharedPreferences==email&&passwordSharedPreferences==password){
 
         }
-    }
-    fun isEmptyInputs(email: String, password: String)=email.isEmpty()||password.isEmpty()
-    private fun isValidEmail(email: String): Boolean {
-        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 }

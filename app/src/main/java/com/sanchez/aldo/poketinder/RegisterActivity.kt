@@ -75,11 +75,19 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }
     }
+    private fun passwordsMatch(password: String, confirmPassword: String): Boolean {
+        return password == confirmPassword
+    }
     private fun isValidEmail(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
-    private fun passwordsMatch(password: String, confirmPassword: String): Boolean {
-        return password == confirmPassword
+
+    private fun saveUser(user: JSONObject) {
+        val sharedPreferences = getSharedPreferences("REGISTRO_DATOS", MODE_PRIVATE)
+        val usersJson = sharedPreferences.getString("users", "[]")
+        val usersArray = JSONArray(usersJson)
+        usersArray.put(user)
+        sharedPreferences.edit().putString("users", usersArray.toString()).apply()
     }
     private fun userExists(email: String): Boolean {
         val usersJson = getSharedPreferences("REGISTRO_DATOS", MODE_PRIVATE).getString("users", "[]")
@@ -90,13 +98,5 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
         return false
-    }
-
-    private fun saveUser(user: JSONObject) {
-        val sharedPreferences = getSharedPreferences("REGISTRO_DATOS", MODE_PRIVATE)
-        val usersJson = sharedPreferences.getString("users", "[]")
-        val usersArray = JSONArray(usersJson)
-        usersArray.put(user)
-        sharedPreferences.edit().putString("users", usersArray.toString()).apply()
     }
 }

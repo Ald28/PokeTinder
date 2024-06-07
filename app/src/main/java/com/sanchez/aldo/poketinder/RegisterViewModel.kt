@@ -18,6 +18,11 @@ class RegisterViewModel (val context: Context
             it.setSharedPreference(context)
         }
 
+    private fun isEmptyInputs(email: String, password: String, confirmPassword: String) =
+        email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()
+    private fun isValidEmail(email: String): Boolean {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
     fun validateInputs(email: String, password: String, confirmPassword: String){
         if(isEmptyInputs(email,password, confirmPassword)){
             inputsError.postValue(true)
@@ -38,10 +43,5 @@ class RegisterViewModel (val context: Context
         if (emailSharedPreferences==email&&passwordSharedPreferences==password){
 
         }
-    }
-    private fun isEmptyInputs(email: String, password: String, confirmPassword: String) =
-        email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()
-    private fun isValidEmail(email: String): Boolean {
-        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 }
