@@ -23,6 +23,7 @@ class SharedPreferencesRepository {
     fun getUserPassword(): String {
         return sharedPreferences.getString(USER_PASSWORD_KEY, "") ?: ""
     }
+
     fun saveUserEmail(email: String) {
         sharedPreferences
             .edit()
