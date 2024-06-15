@@ -1,9 +1,10 @@
-package com.sanchez.aldo.poketinder
+package com.sanchez.aldo.poketinder.ui.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.sanchez.aldo.poketinder.ui.viewmodel.RegisterViewModel
 import com.sanchez.aldo.poketinder.databinding.ActivityRegisterBinding
 import org.json.JSONArray
 import org.json.JSONObject

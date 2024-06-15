@@ -1,13 +1,11 @@
-package com.sanchez.aldo.poketinder
+package com.sanchez.aldo.poketinder.ui.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.sanchez.aldo.poketinder.LoginViewModel
-import com.sanchez.aldo.poketinder.RegisterActivity
+import com.sanchez.aldo.poketinder.ui.viewmodel.LoginViewModel
 import com.sanchez.aldo.poketinder.databinding.ActivityLoginBinding
-import com.sanchez.aldo.poketinder.databinding.ItemPokemBinding
 import org.json.JSONArray
 
 class LoginActivity : AppCompatActivity() {

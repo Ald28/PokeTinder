@@ -1,5 +1,6 @@
-package com.sanchez.aldo.poketinder
+package com.sanchez.aldo.poketinder.data.network
 
+import com.sanchez.aldo.poketinder.data.model.PokemonListResponse
 import retrofit2.Response
 import retrofit2.http.GET
 
